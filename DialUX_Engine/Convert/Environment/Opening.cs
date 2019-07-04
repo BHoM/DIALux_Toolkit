@@ -30,7 +30,11 @@ namespace BH.Engine.DialUX
             furnishing.RotationX = 0;
             furnishing.RotationY = 0;
             furnishing.RotationZ = 0;
-            furnishing.Position = opening.Polyline().Centroid();
+
+            Point centre = opening.Polyline().Centroid();
+            centre.Z -= (opening.Polyline().Height() / 2);
+
+            furnishing.Position = centre;
             furnishing.Height = Math.Round(opening.Polyline().Height(), 3);
             furnishing.Width = Math.Round(opening.Polyline().Width(), 3);
             furnishing.Depth = 0;
