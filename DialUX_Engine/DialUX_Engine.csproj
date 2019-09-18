@@ -7,8 +7,8 @@
     <ProjectGuid>{281D9BAE-9794-4BCF-9773-051926DC6568}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BH.Engine.DialUX</RootNamespace>
-    <AssemblyName>DialUX_Engine</AssemblyName>
+    <RootNamespace>BH.Engine.DIALux</RootNamespace>
+    <AssemblyName>DIALux_Engine</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -75,9 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DialUX_oM\DialUX_oM.csproj">
+    <ProjectReference Include="..\DialUX_oM\DIALux_oM.csproj">
       <Project>{ca36da52-deed-4834-b10a-eb49760b27d1}</Project>
-      <Name>DialUX_oM</Name>
+      <Name>DIALux_oM</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

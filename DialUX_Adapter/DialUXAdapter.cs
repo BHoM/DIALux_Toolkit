@@ -12,7 +12,7 @@ using BH.oM.Reflection.Attributes;
 using System.ComponentModel;
 using BH.oM.Data.Requests;
 
-namespace BH.Adapter.DialUX
+namespace BH.Adapter.DIALux
 {
     public partial class DialUXAdapter : BHoMAdapter
     {

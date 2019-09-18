@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-using BH.oM.DialUX;
-using BH.Engine.DialUX;
+using BH.oM.DIALux;
+using BH.Engine.DIALux;
 
 using BH.oM.Environment.Elements;
 using BH.Engine.Environment;
 
 using System.IO;
 
-namespace BH.Adapter.DialUX
+namespace BH.Adapter.DIALux
 {
     public partial class DialUXAdapter : BHoMAdapter
     {
@@ -40,7 +40,7 @@ namespace BH.Adapter.DialUX
             return true;
         }
 
-        private void WriteVersion(StreamWriter sw, BH.oM.DialUX.Version version)
+        private void WriteVersion(StreamWriter sw, BH.oM.DIALux.Version version)
         {
             sw.WriteLine("[VERSION]");
             sw.WriteLine("STFF=" + version.VersionNo);

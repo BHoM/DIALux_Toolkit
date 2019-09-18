@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-namespace BH.oM.DialUX
+namespace BH.oM.DIALux
 {
     public class StfFile : BHoMObject
     {

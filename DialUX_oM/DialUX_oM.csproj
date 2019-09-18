@@ -7,8 +7,8 @@
     <ProjectGuid>{CA36DA52-DEED-4834-B10A-EB49760B27D1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BH.oM.DialUX</RootNamespace>
-    <AssemblyName>DialUX_oM</AssemblyName>
+    <RootNamespace>BH.oM.DIALux</RootNamespace>
+    <AssemblyName>DIALux_oM</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

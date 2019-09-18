@@ -9,7 +9,7 @@ using BH.oM.Reflection.Attributes;
 using System.ComponentModel;
 using BH.Engine.Reflection;
 
-namespace BH.Engine.DialUX
+namespace BH.Engine.DIALux
 {
     public static partial class Convert
     {
