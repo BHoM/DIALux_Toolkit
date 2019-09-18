@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DialUX_Adapter", "DialUX_Adapter\DialUX_Adapter.csproj", "{4D9E9B7D-8246-42F4-A8BC-8B4CD4E8D7DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIALux_Adapter", "DialUX_Adapter\DIALux_Adapter.csproj", "{4D9E9B7D-8246-42F4-A8BC-8B4CD4E8D7DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DialUX_Engine", "DialUX_Engine\DialUX_Engine.csproj", "{281D9BAE-9794-4BCF-9773-051926DC6568}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIALux_Engine", "DialUX_Engine\DIALux_Engine.csproj", "{281D9BAE-9794-4BCF-9773-051926DC6568}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DialUX_oM", "DialUX_oM\DialUX_oM.csproj", "{CA36DA52-DEED-4834-B10A-EB49760B27D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIALux_oM", "DialUX_oM\DIALux_oM.csproj", "{CA36DA52-DEED-4834-B10A-EB49760B27D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

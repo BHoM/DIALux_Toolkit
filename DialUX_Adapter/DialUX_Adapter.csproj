@@ -7,8 +7,8 @@
     <ProjectGuid>{4D9E9B7D-8246-42F4-A8BC-8B4CD4E8D7DE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BH.Adapter.DialUX</RootNamespace>
-    <AssemblyName>DialUX_Adapter</AssemblyName>
+    <RootNamespace>BH.Adapter.DIALux</RootNamespace>
+    <AssemblyName>DIALux_Adapter</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -84,13 +84,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DialUX_Engine\DialUX_Engine.csproj">
+    <ProjectReference Include="..\DialUX_Engine\DIALux_Engine.csproj">
       <Project>{281d9bae-9794-4bcf-9773-051926dc6568}</Project>
-      <Name>DialUX_Engine</Name>
+      <Name>DIALux_Engine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DialUX_oM\DialUX_oM.csproj">
+    <ProjectReference Include="..\DialUX_oM\DIALux_oM.csproj">
       <Project>{ca36da52-deed-4834-b10a-eb49760b27d1}</Project>
-      <Name>DialUX_oM</Name>
+      <Name>DIALux_oM</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

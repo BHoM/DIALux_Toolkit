@@ -12,9 +12,9 @@ using BH.oM.Environment.Elements;
 using BH.Engine.Environment;
 using BH.Engine.Geometry;
 
-using BH.oM.DialUX;
+using BH.oM.DIALux;
 
-namespace BH.Engine.DialUX
+namespace BH.Engine.DIALux
 {
     public static partial class Convert
     {

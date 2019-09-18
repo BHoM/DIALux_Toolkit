@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using BH.oM.Base;
 
-namespace BH.Adapter.DialUX
+namespace BH.Adapter.DIALux
 {
     public partial class DialUXAdapter : BHoMAdapter
     {

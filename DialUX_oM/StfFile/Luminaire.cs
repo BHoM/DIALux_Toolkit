@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Geometry;
 
-namespace BH.oM.DialUX
+namespace BH.oM.DIALux
 {
     public class Luminaire : BHoMObject
     {
