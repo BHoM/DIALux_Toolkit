@@ -33,7 +33,6 @@ namespace BH.Adapter.DIALux
             }
 
             AdapterId = "DialUX_Adapter";
-            Config.ProcessInMemory = false;
             Config.UseAdapterId = false;        //Set to true when NextId method and id tagging has been implemented
         }
 
