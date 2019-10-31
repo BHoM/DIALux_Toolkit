@@ -18,7 +18,7 @@ namespace BH.Adapter.DIALux
 {
     public partial class DialUXAdapter : BHoMAdapter
     {
-        protected override bool Create<T>(IEnumerable<T> objects, bool replaceAll = false)
+        protected override bool Create<T>(IEnumerable<T> objects)
         {
             StfFile file = new StfFile();
 
