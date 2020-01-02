@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 using BH.Engine;
 using BH.oM.Base;
-using System.Reflection;
 
 using BH.oM.Reflection.Attributes;
 using System.ComponentModel;
@@ -29,8 +28,8 @@ namespace BH.Adapter.DIALux
                 return;
             }
 
-            AdapterId = "DialUX_Adapter";
-            Config.UseAdapterId = false;        //Set to true when NextId method and id tagging has been implemented
+            AdapterIdName = "DialUX_Adapter";
+ /*           Config.UseAdapterId = false;        //Set to true when NextId method and id tagging has been implemented
         }
 
         public override List<IObject> Push(IEnumerable<IObject> objects, String tag = "", Dictionary<String, object> config = null)
@@ -60,7 +59,7 @@ namespace BH.Adapter.DIALux
                 return Read(filterRequest.Type);
             }
             else
-                return Read(null);
+                return Read(null); */
         }
 
         private string FileName { get; set; } = "";
