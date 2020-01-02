@@ -36,6 +36,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Adapter_oM">
+      <HintPath>..\..\BHoM_Adapter\Build\Adapter_oM.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="BHoM">
       <HintPath>..\..\BHoM\Build\BHoM.dll</HintPath>
       <Private>False</Private>
@@ -84,6 +88,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdapterActions\Pull.cs" />
+    <Compile Include="AdapterActions\Push.cs" />
     <Compile Include="CRUD\Create.cs" />
     <Compile Include="CRUD\Read.cs" />
     <Compile Include="DialUXAdapter.cs" />
@@ -104,6 +110,7 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

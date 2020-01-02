@@ -14,11 +14,13 @@ using BH.Engine.Environment;
 
 using System.IO;
 
+using BH.oM.Adapter;
+
 namespace BH.Adapter.DIALux
 {
     public partial class DialUXAdapter : BHoMAdapter
     {
-        protected override bool Create<T>(IEnumerable<T> objects)
+        protected override bool ICreate<T>(IEnumerable<T> objects, ActionConfig actionconfig = null)
         {
             StfFile file = new StfFile();
 
