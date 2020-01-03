@@ -11,9 +11,9 @@ using System.Reflection;
 
 namespace BH.Adapter.DIALux
 {
-    public partial class DialUXAdapter : BHoMAdapter
+    public partial class DIALuxAdapter : BHoMAdapter
     {
-        public virtual List<object> Pull(IEnumerable<object> objects, string tag = "", PullType pullType = PullType.AdapterDefault, ActionConfig actionConfig = null)
+        public override IEnumerable<object> Pull(IRequest request, PullType pullType = PullType.AdapterDefault, ActionConfig actionConfig = null)
         {
             if (!System.IO.File.Exists(System.IO.Path.Combine(FileName + ".stf")))
                 return new List<IBHoMObject>();
@@ -21,11 +21,10 @@ namespace BH.Adapter.DIALux
             if (request != null)
             {
                 FilterRequest filterRequest = request as FilterRequest;
-
-                return Read(filterRequest.Type);
+                return IRead(filterRequest.Type);
             }
             else
-                return Read(null);
+                return IRead(null);
         }
     }
 }
