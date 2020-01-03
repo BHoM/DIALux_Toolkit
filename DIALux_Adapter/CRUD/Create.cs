@@ -18,7 +18,7 @@ using BH.oM.Adapter;
 
 namespace BH.Adapter.DIALux
 {
-    public partial class DialUXAdapter : BHoMAdapter
+    public partial class DIALuxAdapter : BHoMAdapter
     {
         protected override bool ICreate<T>(IEnumerable<T> objects, ActionConfig actionconfig = null)
         {

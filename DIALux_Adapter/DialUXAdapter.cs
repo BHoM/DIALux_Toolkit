@@ -13,15 +13,12 @@ using BH.oM.Data.Requests;
 
 namespace BH.Adapter.DIALux
 {
-    public partial class DialUXAdapter : BHoMAdapter
+    public partial class DIALuxAdapter : BHoMAdapter
     {
-        [Description("Specify XML file and properties for data transfer")]
-        [Input("xmlFileName", "Name of XML file")]
-        [Input("xmlDirectoryPath", "Path to XML file")]
-        [Input("exportType", "Specify whether the file is TAS or IES specific")]
-        [Input("exportDetail", "Define what you want to include in the export, for example 'Spaces'")]
-        [Output("adapter", "Adapter to XML")]
-        public DialUXAdapter(string fileName)
+        [Description("Produces a DIALux Adapter to allow interopability with DIALux and the BHoM")]
+        [Input("FileName", "Name of file")]
+        [Output("adapter", "Adapter to DIALux")]
+        public DIALuxAdapter(string fileName)
         {
             FileName = fileName;
 
@@ -31,38 +28,7 @@ namespace BH.Adapter.DIALux
                 return;
             }
 
-            AdapterIdName = "DialUX_Adapter";
- /*           Config.UseAdapterId = false;        //Set to true when NextId method and id tagging has been implemented
-        }
-
-        public override List<IObject> Push(IEnumerable<IObject> objects, String tag = "", Dictionary<String, object> config = null)
-        {
-            bool success = true;
-
-            MethodInfo methodInfos = typeof(Enumerable).GetMethod("Cast");
-            foreach (var typeGroup in objects.GroupBy(x => x.GetType()))
-            {
-                MethodInfo mInfo = methodInfos.MakeGenericMethod(new[] { typeGroup.Key });
-                var list = mInfo.Invoke(typeGroup, new object[] { typeGroup });
-                success &= Create(list as dynamic);
-            }
-
-            return success ? objects.ToList() : new List<IObject>();
-        }
-
-        public override IEnumerable<object> Pull(IRequest request, Dictionary<string, object> config = null)
-        {
-            if (!System.IO.File.Exists(System.IO.Path.Combine(FileName + ".stf")))
-                return new List<IBHoMObject>();
-
-            if (request != null)
-            {
-                FilterRequest filterRequest = request as FilterRequest;
-
-                return Read(filterRequest.Type);
-            }
-            else
-                return Read(null); */
+            AdapterIdName = "DIALux_Adapter";
         }
 
         private string FileName { get; set; } = "";

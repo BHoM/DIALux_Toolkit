@@ -8,7 +8,7 @@ using BH.oM.Adapter;
 
 namespace BH.Adapter.DIALux
 {
-    public partial class DialUXAdapter : BHoMAdapter
+    public partial class DIALuxAdapter : BHoMAdapter
     {
 
         protected override IEnumerable<IBHoMObject> IRead(Type type, IList indices = null, ActionConfig actionConfig = null)
