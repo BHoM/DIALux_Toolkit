@@ -16,12 +16,9 @@ namespace BH.Adapter.DIALux
 {
     public partial class DialUXAdapter : BHoMAdapter
     {
-        [Description("Specify XML file and properties for data transfer")]
-        [Input("xmlFileName", "Name of XML file")]
-        [Input("xmlDirectoryPath", "Path to XML file")]
-        [Input("exportType", "Specify whether the file is TAS or IES specific")]
-        [Input("exportDetail", "Define what you want to include in the export, for example 'Spaces'")]
-        [Output("adapter", "Adapter to XML")]
+        [Description("Produces an DIALux Adapter to allow interopability with DIALux and the BHoM")]
+        [Input("fileName", "Name of file")]
+        [Output("adapter", "Adapter to DIALux")]
         public DialUXAdapter(string fileName)
         {
             FileName = fileName;
