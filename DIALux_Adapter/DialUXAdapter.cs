@@ -16,7 +16,7 @@ namespace BH.Adapter.DIALux
     public partial class DIALuxAdapter : BHoMAdapter
     {
         [Description("Produces a DIALux Adapter to allow interopability with DIALux and the BHoM")]
-        [Input("FileName", "Name of file")]
+        [Input("fileName", "Name of file")]
         [Output("adapter", "Adapter to DIALux")]
         public DIALuxAdapter(string fileName)
         {
