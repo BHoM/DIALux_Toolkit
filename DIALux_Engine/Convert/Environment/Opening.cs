@@ -20,7 +20,6 @@ namespace BH.Engine.DIALux
     {
         [Description("Convert a BHoM Environment Opening into a DialUX Furnishing")]
         [Input("opening", "A BHoM Environment Opening to convert")]
-        [Input("roomReference", "A room reference to link this furnishing to")]
         [Output("furnishing", "A DialUX opening represented as a 'furnishing'")]
         public static Furnishing ToDialUX(this Opening opening)
         {
