@@ -43,7 +43,7 @@ namespace BH.Engine.DIALux
         [Description("Convert a DialUX Furnishing Type into a BHoM Opening Type")]
         [Input("furnishingType", "A DialUX furnishing type to convert")]
         [Output("openingType", "A BHoM Environment Opening Type")]
-        public static OpeningType ToBHoMOpeningType(string furnishingType)
+        public static OpeningType FromDialUXOpeningType(string furnishingType)
         {
             if (furnishingType == "win")
                 return OpeningType.Window;
