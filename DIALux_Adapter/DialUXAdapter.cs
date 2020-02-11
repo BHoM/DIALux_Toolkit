@@ -10,21 +10,23 @@ using BH.oM.Base;
 using BH.oM.Reflection.Attributes;
 using System.ComponentModel;
 using BH.oM.Data.Requests;
+using BH.oM.Adapter;
+using BH.Engine.Adapter;
 
 namespace BH.Adapter.DIALux
 {
     public partial class DIALuxAdapter : BHoMAdapter
     {
         [Description("Produces a DIALux Adapter to allow interopability with DIALux and the BHoM")]
-        [Input("fileName", "Name of file")]
+        [Input("fileSettings", "Input fileSettings to get the full file name that th DIALux Adapter should use")]
         [Output("adapter", "Adapter to DIALux")]
-        public DIALuxAdapter(string fileName)
+        public DIALuxAdapter(BH.oM.Adapter.FileSettings fileSettings)
         {
-            FileName = fileName;
+            FileSettings = fileSettings;
 
-            if (System.IO.Path.HasExtension(FileName) && System.IO.Path.GetExtension(FileName) == ".stf")
+            if (!System.IO.Path.HasExtension(fileSettings.FileName) || System.IO.Path.GetExtension(fileSettings.FileName) != ".stf")
             {
-                BH.Engine.Reflection.Compute.RecordError("File Name cannot contain a file extension");
+                BH.Engine.Reflection.Compute.RecordError("File Name must contain a file extension");
                 return;
             }
 
@@ -34,6 +36,6 @@ namespace BH.Adapter.DIALux
             m_AdapterSettings.DefaultPushType = oM.Adapter.PushType.CreateOnly;
         }
 
-        private string FileName { get; set; } = "";
+        private FileSettings FileSettings { get; set; } = null;
     }
 }
