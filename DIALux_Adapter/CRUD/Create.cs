@@ -13,6 +13,7 @@ using BH.oM.Environment.Elements;
 using BH.Engine.Environment;
 
 using System.IO;
+using BH.Engine.Adapter;
 
 using BH.oM.Adapter;
 
@@ -32,7 +33,7 @@ namespace BH.Adapter.DIALux
             foreach(List<Panel> space in panelsAsSpaces)
                 file.Project.Rooms.Add(space.ToDialUX());
 
-            StreamWriter sw = new StreamWriter(FileName + ".stf");
+            StreamWriter sw = new StreamWriter(FileSettings.GetFullFileName());
 
             WriteVersion(sw, file.Version);
             WriteProject(sw, file.Project);
