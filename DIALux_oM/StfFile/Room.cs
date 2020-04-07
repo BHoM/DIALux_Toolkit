@@ -33,13 +33,13 @@ namespace BH.oM.DIALux
 {
     public class Room : BHoMObject
     {
-        public double Height { get; set; } = 0.0;
-        public string Description { get; set; } = "BHoM Created Room";
-        public List<Point> Points { get; set; } = new List<Point>();
-        public List<Structure> Structures { get; set; } = new List<Structure>();
-        public List<Luminaire> Luminaires { get; set; } = new List<Luminaire>();
-        public List<Furnishing> Furnishings { get; set; } = new List<Furnishing>();
-        public string SpecificConnectedLoad { get; set; } = "";
-        public string MeanLuxWorkingPlane { get; set; } = "";
+        public virtual double Height { get; set; } = 0.0;
+        public virtual string Description { get; set; } = "BHoM Created Room";
+        public virtual List<Point> Points { get; set; } = new List<Point>();
+        public virtual List<Structure> Structures { get; set; } = new List<Structure>();
+        public virtual List<Luminaire> Luminaires { get; set; } = new List<Luminaire>();
+        public virtual List<Furnishing> Furnishings { get; set; } = new List<Furnishing>();
+        public virtual string SpecificConnectedLoad { get; set; } = "";
+        public virtual string MeanLuxWorkingPlane { get; set; } = "";
     }
 }

@@ -33,18 +33,18 @@ namespace BH.oM.DIALux
 {
     public class LuminaireType : BHoMObject
     {
-        public string Manufacturer { get; set; } = "";
-        public string OrderNumber { get; set; } = "";
-        public double BoxHeight { get; set; } = 0.0;
-        public double BoxWidth { get; set; } = 0.0;
-        public double BoxDepth { get; set; } = 0.0;
-        public int Shape { get; set; } = 1;
-        public double Load { get; set; } = 0.0;
-        public double Flux { get; set; } = 0.0;
-        public int NumberLamps { get; set; } = 0;
-        public int MountingType { get; set; } = 1;
-        public string Description { get; set; } = "";
-        public string Picture { get; set; } = "";
-        public string Model { get; set; } = "";
+        public virtual string Manufacturer { get; set; } = "";
+        public virtual string OrderNumber { get; set; } = "";
+        public virtual double BoxHeight { get; set; } = 0.0;
+        public virtual double BoxWidth { get; set; } = 0.0;
+        public virtual double BoxDepth { get; set; } = 0.0;
+        public virtual int Shape { get; set; } = 1;
+        public virtual double Load { get; set; } = 0.0;
+        public virtual double Flux { get; set; } = 0.0;
+        public virtual int NumberLamps { get; set; } = 0;
+        public virtual int MountingType { get; set; } = 1;
+        public virtual string Description { get; set; } = "";
+        public virtual string Picture { get; set; } = "";
+        public virtual string Model { get; set; } = "";
     }
 }

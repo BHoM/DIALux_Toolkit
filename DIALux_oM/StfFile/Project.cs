@@ -32,9 +32,9 @@ namespace BH.oM.DIALux
 {
     public class Project : BHoMObject
     {
-        public DateTime Date { get; set; } = DateTime.Now;
-        public string Planer { get; set; } = "00000";
-        public string Description { get; set; } = "BHoM Created STF File";
-        public List<Room> Rooms { get; set; } = new List<Room>();
+        public virtual DateTime Date { get; set; } = DateTime.Now;
+        public virtual string Planer { get; set; } = "00000";
+        public virtual string Description { get; set; } = "BHoM Created STF File";
+        public virtual List<Room> Rooms { get; set; } = new List<Room>();
     }
 }

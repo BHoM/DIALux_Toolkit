@@ -32,8 +32,8 @@ namespace BH.oM.DIALux
 {
     public class StfFile : BHoMObject
     {
-        public Version Version { get; set; } = new Version();
-        public Project Project { get; set; } = new Project();
-        public List<LuminaireType> LuminaireTypes { get; set; } = new List<LuminaireType>();
+        public virtual Version Version { get; set; } = new Version();
+        public virtual Project Project { get; set; } = new Project();
+        public virtual List<LuminaireType> LuminaireTypes { get; set; } = new List<LuminaireType>();
     }
 }

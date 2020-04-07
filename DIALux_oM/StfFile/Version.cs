@@ -32,8 +32,8 @@ namespace BH.oM.DIALux
 {
     public class Version : BHoMObject
     {
-        public string VersionNo { get; set; } = "1.0.5";
-        public string ProgramName { get; set; } = "BHoM";
-        public string ProgramVersion { get; set; } = "2.3.0";
+        public virtual string VersionNo { get; set; } = "1.0.5";
+        public virtual string ProgramName { get; set; } = "BHoM";
+        public virtual string ProgramVersion { get; set; } = "2.3.0";
     }
 }
