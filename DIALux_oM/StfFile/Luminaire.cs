@@ -33,12 +33,12 @@ namespace BH.oM.DIALux
 {
     public class Luminaire : BHoMObject
     {
-        public string Type { get; set; } = "";
-        public double RotationX { get; set; } = 0.0;
-        public double RotationY { get; set; } = 0.0;
-        public double RotationZ { get; set; } = 0.0;
-        public Vector Extends { get; set; } = new Vector();
+        public virtual string Type { get; set; } = "";
+        public virtual double RotationX { get; set; } = 0.0;
+        public virtual double RotationY { get; set; } = 0.0;
+        public virtual double RotationZ { get; set; } = 0.0;
+        public virtual Vector Extends { get; set; } = new Vector();
 
-        public LuminaireType LuminaireType { get; set; } = new LuminaireType();
+        public virtual LuminaireType LuminaireType { get; set; } = new LuminaireType();
     }
 }

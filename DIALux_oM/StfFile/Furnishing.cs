@@ -33,14 +33,14 @@ namespace BH.oM.DIALux
 {
     public class Furnishing : BHoMObject
     {
-        public string Type { get; set; } = "";
-        public string Reference { get; set; } = "";
-        public Point Position { get; set; } = new Point();
-        public double RotationX { get; set; } = 0.0;
-        public double RotationY { get; set; } = 0.0;
-        public double RotationZ { get; set; } = 0.0;
-        public double Height { get; set; } = 0;
-        public double Width { get; set; } = 0;
-        public double Depth { get; set; } = 0;
+        public virtual string Type { get; set; } = "";
+        public virtual string Reference { get; set; } = "";
+        public virtual Point Position { get; set; } = new Point();
+        public virtual double RotationX { get; set; } = 0.0;
+        public virtual double RotationY { get; set; } = 0.0;
+        public virtual double RotationZ { get; set; } = 0.0;
+        public virtual double Height { get; set; } = 0;
+        public virtual double Width { get; set; } = 0;
+        public virtual double Depth { get; set; } = 0;
     }
 }

@@ -33,11 +33,11 @@ namespace BH.oM.DIALux
 {
     public class Structure : BHoMObject
     {
-        public string Type { get; set; } = "";
-        public Point Position { get; set; } = new Point();
-        public double RotationX { get; set; } = 0.0;
-        public double RotationY { get; set; } = 0.0;
-        public double RotationZ { get; set; } = 0.0;
-        public Luminaire LuminaireStructure { get; set; } = new Luminaire();
+        public virtual string Type { get; set; } = "";
+        public virtual Point Position { get; set; } = new Point();
+        public virtual double RotationX { get; set; } = 0.0;
+        public virtual double RotationY { get; set; } = 0.0;
+        public virtual double RotationZ { get; set; } = 0.0;
+        public virtual Luminaire LuminaireStructure { get; set; } = new Luminaire();
     }
 }
