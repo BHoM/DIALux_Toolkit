@@ -2,7 +2,7 @@
 
 # DIALux_Toolkit
 
-The DIALux_Toolkit allows interoperability between the BHoM and DIALux. Enables creation, manipulation and reading of models via the `stf` file formate for DIALux.
+The DIALux_Toolkit allows interoperability between the BHoM and DIALux. Enables creation, manipulation and reading of models via the `stf` file format for DIALux.
 
 ...
 
