@@ -75,20 +75,13 @@ namespace BH.Engine.DIALux
             double width = System.Convert.ToDouble(size[0]);
             double height = System.Convert.ToDouble(size[1]);
 
-            BoundingBox bounds = host.Bounds();
-            Vector xVector = bounds.Min - new Point() { X = bounds.Max.X, Y = bounds.Min.Y, Z = bounds.Min.Z };
-            Vector yVector = bounds.Max - new Point() { X = bounds.Max.X, Y = bounds.Min.Y, Z = bounds.Max.Z };
-
             Point worldOrigin = new Point { X = 0, Y = 0, Z = 0 };
             Cartesian worldCartesian = BH.Engine.Geometry.Create.CartesianCoordinateSystem(worldOrigin, Vector.XAxis, Vector.YAxis);
-            Cartesian localCartesian = BH.Engine.Geometry.Create.CartesianCoordinateSystem(bounds.Min, Vector.XAxis, Vector.YAxis);
-
-            Polyline hostTransformed = host.Polyline().Orient(localCartesian, worldCartesian);
+            Cartesian localCartesian = BH.Engine.Geometry.Create.CartesianCoordinateSystem(host.Bounds().Min, Vector.XAxis, Vector.YAxis);
 
             Point centreTransformed = centre.Orient(localCartesian, worldCartesian);
 
             List<Point> openingPts = new List<Point>();
-
             openingPts.Add(new Point { X = centreTransformed.X - (width / 2), Y = centreTransformed.Y, Z = centreTransformed.Z - (height / 2) });
             openingPts.Add(new Point { X = centreTransformed.X - (width / 2), Y = centreTransformed.Y, Z = centreTransformed.Z + (height / 2) });
             openingPts.Add(new Point { X = centreTransformed.X + (width / 2), Y = centreTransformed.Y, Z = centreTransformed.Z + (height / 2) });

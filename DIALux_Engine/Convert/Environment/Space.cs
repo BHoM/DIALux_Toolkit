@@ -75,10 +75,7 @@ namespace BH.Engine.DIALux
             for (int x = pointIndex; x < endPointIndex; x++)
                 points.Add(dialUXRoom[x].FromDialUXPoint());
 
-            Polyline polyline = new Polyline()
-            {
-                ControlPoints = points
-            };
+            Polyline polyline = new Polyline() { ControlPoints = points };
 
             double height = System.Convert.ToDouble(dialUXRoom[2].Split('=')[1]);
             p = polyline.ExtrudeToVolume(dialUXRoom[0], height);
