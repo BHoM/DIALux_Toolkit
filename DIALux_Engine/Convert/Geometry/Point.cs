@@ -56,9 +56,9 @@ namespace BH.Engine.DIALux
         [Description("Converts a DialUX Point string to a BHoM Geometry Point. DialUX Point should be in the format of X Y Z with spaces between each coordinate. Z coordinate is optional")]
         [Input("dialUXPoint", "The DialUX Point to convert to BHoM")]
         [Output("point", "The converted BHoM geometry point")]
-        public static Point FromDialUX(string dialUXPoint)
+        public static Point FromDialUXPoint(this string dialUXPoint)
         {
-            string[] pointParts = dialUXPoint.Split(' ');
+            string[] pointParts = dialUXPoint.Split('=')[1].Split(' ');
             if(pointParts.Length < 2)
             {
                 BH.Engine.Reflection.Compute.RecordError("That string does not contain enough parts to convert to a BHoM point");

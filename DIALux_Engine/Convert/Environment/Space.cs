@@ -57,10 +57,48 @@ namespace BH.Engine.DIALux
             foreach(Panel p in panelsAsSpace)
             {
                 foreach (Opening o in p.Openings)
-                    room.Furnishings.Add(o.ToDialUX());
+                    room.Furnishings.Add(o.ToDIALux());
             }
 
             return room;
+        }
+
+        public static List<Panel> FromDialUXSpace(this List<string> dialUXRoom)
+        {
+            List<Panel> p = new List<Panel>();
+
+            string connectedSpaceName = dialUXRoom[0];
+            int pointIndex = dialUXRoom.IndexOf(dialUXRoom.Where(x => x.Contains("Point1=")).FirstOrDefault());
+            int endPointIndex = dialUXRoom.IndexOf(dialUXRoom.Where(x => x.Contains("NrStruct=")).FirstOrDefault());
+
+            List<Point> points = new List<Point>();
+            for (int x = pointIndex; x < endPointIndex; x++)
+                points.Add(dialUXRoom[x].FromDialUXPoint());
+
+            Polyline polyline = new Polyline()
+            {
+                ControlPoints = points
+            };
+
+            double height = System.Convert.ToDouble(dialUXRoom[2].Split('=')[1]);
+            p = polyline.ExtrudeToVolume(dialUXRoom[0], height);
+
+            int openingIndex = endPointIndex + 3;
+            List<Opening> openings = new List<Opening>();
+            while(openingIndex < dialUXRoom.Count)
+            {
+                List<string> opening = new List<string>();
+                for (int x = openingIndex; x < openingIndex + 5; x++)
+                    opening.Add(dialUXRoom[x]);
+
+                openings.Add(opening.FromDialUXOpening(p.Where(x => x.IsContaining(opening[3].FromDialUXPoint())).FirstOrDefault()));
+
+                openingIndex += 5;
+            }
+
+            p = p.AddOpenings(openings);
+
+            return p;
         }
     }
 }
