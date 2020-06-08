@@ -35,6 +35,8 @@ using BH.Engine.Environment;
 using BH.Engine.Geometry;
 
 using BH.oM.DIALux;
+using BH.oM.Geometry.CoordinateSystem;
+using System.Diagnostics;
 
 namespace BH.Engine.DIALux
 {
@@ -43,7 +45,7 @@ namespace BH.Engine.DIALux
         [Description("Convert a BHoM Environment Opening into a DialUX Furnishing")]
         [Input("opening", "A BHoM Environment Opening to convert")]
         [Output("furnishing", "A DialUX opening represented as a 'furnishing'")]
-        public static Furnishing ToDialUX(this Opening opening)
+        public static Furnishing ToDIALux(this Opening opening)
         {
             Furnishing furnishing = new Furnishing();
             furnishing.Type = opening.Type.ToDialUX();
@@ -61,6 +63,46 @@ namespace BH.Engine.DIALux
             furnishing.Depth = 0;
 
             return furnishing;
+        }
+
+        public static Opening FromDialUXOpening(this List<string> furnishing, Panel host)
+        {
+            Opening opening = new Opening();
+
+            Point centre = furnishing[3].FromDialUXPoint();
+
+            string[] size = furnishing[4].Split('=')[1].Split(' ');
+            double width = System.Convert.ToDouble(size[0]);
+            double height = System.Convert.ToDouble(size[1]);
+
+            BoundingBox bounds = host.Bounds();
+            Vector xVector = bounds.Min - new Point() { X = bounds.Max.X, Y = bounds.Min.Y, Z = bounds.Min.Z };
+            Vector yVector = bounds.Max - new Point() { X = bounds.Max.X, Y = bounds.Min.Y, Z = bounds.Max.Z };
+
+            Point worldOrigin = new Point { X = 0, Y = 0, Z = 0 };
+            Cartesian worldCartesian = BH.Engine.Geometry.Create.CartesianCoordinateSystem(worldOrigin, Vector.XAxis, Vector.YAxis);
+            Cartesian localCartesian = BH.Engine.Geometry.Create.CartesianCoordinateSystem(bounds.Min, Vector.XAxis, Vector.YAxis);
+
+            Polyline hostTransformed = host.Polyline().Orient(localCartesian, worldCartesian);
+
+            Point centreTransformed = centre.Orient(localCartesian, worldCartesian);
+
+            List<Point> openingPts = new List<Point>();
+
+            openingPts.Add(new Point { X = centreTransformed.X - (width / 2), Y = centreTransformed.Y - (height / 2), Z = centreTransformed.Z });
+            openingPts.Add(new Point { X = centreTransformed.X - (width / 2), Y = centreTransformed.Y + (height / 2), Z = centreTransformed.Z });
+            openingPts.Add(new Point { X = centreTransformed.X + (width / 2), Y = centreTransformed.Y + (height / 2), Z = centreTransformed.Z });
+            openingPts.Add(new Point { X = centreTransformed.X + (width / 2), Y = centreTransformed.Y - (height / 2), Z = centreTransformed.Z });
+            openingPts.Add(openingPts.First());
+
+            Polyline openingCurve = new Polyline { ControlPoints = openingPts };
+
+            openingCurve = openingCurve.Orient(worldCartesian, localCartesian);
+
+            opening.Edges = openingCurve.ToEdges();
+            opening.Type = furnishing[0].Split('=')[1].FromDialUXOpeningType();
+
+            return opening;
         }
     }
 }
