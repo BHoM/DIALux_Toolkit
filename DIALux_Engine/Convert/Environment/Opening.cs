@@ -89,10 +89,10 @@ namespace BH.Engine.DIALux
 
             List<Point> openingPts = new List<Point>();
 
-            openingPts.Add(new Point { X = centreTransformed.X - (width / 2), Y = centreTransformed.Y - (height / 2), Z = centreTransformed.Z });
-            openingPts.Add(new Point { X = centreTransformed.X - (width / 2), Y = centreTransformed.Y + (height / 2), Z = centreTransformed.Z });
-            openingPts.Add(new Point { X = centreTransformed.X + (width / 2), Y = centreTransformed.Y + (height / 2), Z = centreTransformed.Z });
-            openingPts.Add(new Point { X = centreTransformed.X + (width / 2), Y = centreTransformed.Y - (height / 2), Z = centreTransformed.Z });
+            openingPts.Add(new Point { X = centreTransformed.X - (width / 2), Y = centreTransformed.Y, Z = centreTransformed.Z - (height / 2) });
+            openingPts.Add(new Point { X = centreTransformed.X - (width / 2), Y = centreTransformed.Y, Z = centreTransformed.Z + (height / 2) });
+            openingPts.Add(new Point { X = centreTransformed.X + (width / 2), Y = centreTransformed.Y, Z = centreTransformed.Z + (height / 2) });
+            openingPts.Add(new Point { X = centreTransformed.X + (width / 2), Y = centreTransformed.Y, Z = centreTransformed.Z - (height / 2) });
             openingPts.Add(openingPts.First());
 
             Polyline openingCurve = new Polyline { ControlPoints = openingPts };
