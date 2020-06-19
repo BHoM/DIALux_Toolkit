@@ -31,7 +31,7 @@ using BH.oM.Reflection.Attributes;
 using System.ComponentModel;
 using BH.Engine.Reflection;
 
-namespace BH.Engine.DIALux
+namespace BH.Engine.Adapters.DIALux
 {
     public static partial class Convert
     {

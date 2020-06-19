@@ -28,8 +28,8 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-using BH.oM.DIALux;
-using BH.Engine.DIALux;
+using BH.oM.Adapters.DIALux;
+using BH.Engine.Adapters.DIALux;
 
 using BH.oM.Environment.Elements;
 using BH.Engine.Environment;
@@ -65,7 +65,7 @@ namespace BH.Adapter.DIALux
             return true;
         }
 
-        private void WriteVersion(StreamWriter sw, BH.oM.DIALux.Version version)
+        private void WriteVersion(StreamWriter sw, BH.oM.Adapters.DIALux.Version version)
         {
             sw.WriteLine("[VERSION]");
             sw.WriteLine("STFF=" + version.VersionNo);
