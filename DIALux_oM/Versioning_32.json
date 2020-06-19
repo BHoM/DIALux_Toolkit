@@ -1,0 +1,18 @@
+{
+  "Namespace": {
+    "ToNew": {
+      "BH.Engine.XML":  "BH.oM.Adapters.DIALux"
+    },
+    "ToOld": {
+      "BH.Engine.Adapters.XML": "BH.oM.DIALux"
+    }
+  },
+  "Type": {
+    "ToNew": {
+      
+    },
+    "ToOld": {
+      
+    }
+  }
+}

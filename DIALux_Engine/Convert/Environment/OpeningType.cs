@@ -34,9 +34,9 @@ using BH.oM.Environment.Elements;
 using BH.Engine.Environment;
 using BH.Engine.Geometry;
 
-using BH.oM.DIALux;
+using BH.oM.Adapters.DIALux;
 
-namespace BH.Engine.DIALux
+namespace BH.Engine.Adapters.DIALux
 {
     public static partial class Convert
     {

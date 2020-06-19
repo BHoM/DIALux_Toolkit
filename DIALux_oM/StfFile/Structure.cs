@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Geometry;
 
-namespace BH.oM.DIALux
+namespace BH.oM.Adapters.DIALux
 {
     public class Structure : BHoMObject
     {

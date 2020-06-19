@@ -34,11 +34,11 @@ using BH.oM.Environment.Elements;
 using BH.Engine.Environment;
 using BH.Engine.Geometry;
 
-using BH.oM.DIALux;
+using BH.oM.Adapters.DIALux;
 using BH.oM.Geometry.CoordinateSystem;
 using System.Diagnostics;
 
-namespace BH.Engine.DIALux
+namespace BH.Engine.Adapters.DIALux
 {
     public static partial class Convert
     {

@@ -31,7 +31,7 @@ using BH.Engine.Adapter;
 using BH.oM.Adapter;
 using BH.oM.Base;
 using System.IO;
-using BH.Engine.DIALux;
+using BH.Engine.Adapters.DIALux;
 
 namespace BH.Adapter.DIALux
 {
