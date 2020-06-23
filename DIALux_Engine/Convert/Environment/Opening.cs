@@ -65,7 +65,7 @@ namespace BH.Engine.Adapters.DIALux
             return furnishing;
         }
 
-        public static Opening FromDialUXOpening(this List<string> furnishing, Panel host)
+        public static Opening FromDialUXOpening(this List<string> furnishing, Panel host, List<Panel> panelsAsSpace)
         {
             Opening opening = new Opening();
 
@@ -75,17 +75,27 @@ namespace BH.Engine.Adapters.DIALux
             double width = System.Convert.ToDouble(size[0]);
             double height = System.Convert.ToDouble(size[1]);
 
+            centre.Z += (height / 2);
+
+            Point panelBottomRightReference = host.BottomRight(panelsAsSpace);
+            Point panelBottomLeftReference = host.BottomLeft(panelsAsSpace);
+            Point panelTopRightReference = host.TopRight(panelsAsSpace);
+
+            Vector xVector = panelBottomLeftReference - panelBottomRightReference;
+            xVector.Z = 0;
+            Vector yVector = panelTopRightReference - panelBottomRightReference;
+
             Point worldOrigin = new Point { X = 0, Y = 0, Z = 0 };
             Cartesian worldCartesian = BH.Engine.Geometry.Create.CartesianCoordinateSystem(worldOrigin, Vector.XAxis, Vector.YAxis);
-            Cartesian localCartesian = BH.Engine.Geometry.Create.CartesianCoordinateSystem(host.Bounds().Min, Vector.XAxis, Vector.YAxis);
+            Cartesian localCartesian = BH.Engine.Geometry.Create.CartesianCoordinateSystem(host.Bounds().Min, xVector, yVector);
 
             Point centreTransformed = centre.Orient(localCartesian, worldCartesian);
 
             List<Point> openingPts = new List<Point>();
-            openingPts.Add(new Point { X = centreTransformed.X - (width / 2), Y = centreTransformed.Y, Z = centreTransformed.Z - (height / 2) });
-            openingPts.Add(new Point { X = centreTransformed.X - (width / 2), Y = centreTransformed.Y, Z = centreTransformed.Z + (height / 2) });
-            openingPts.Add(new Point { X = centreTransformed.X + (width / 2), Y = centreTransformed.Y, Z = centreTransformed.Z + (height / 2) });
-            openingPts.Add(new Point { X = centreTransformed.X + (width / 2), Y = centreTransformed.Y, Z = centreTransformed.Z - (height / 2) });
+            openingPts.Add(new Point { X = centreTransformed.X - (width / 2), Y = centreTransformed.Y - (height / 2), Z = centreTransformed.Z });
+            openingPts.Add(new Point { X = centreTransformed.X - (width / 2), Y = centreTransformed.Y + (height / 2), Z = centreTransformed.Z });
+            openingPts.Add(new Point { X = centreTransformed.X + (width / 2), Y = centreTransformed.Y + (height / 2), Z = centreTransformed.Z });
+            openingPts.Add(new Point { X = centreTransformed.X + (width / 2), Y = centreTransformed.Y - (height / 2), Z = centreTransformed.Z });
             openingPts.Add(openingPts.First());
 
             Polyline openingCurve = new Polyline { ControlPoints = openingPts };

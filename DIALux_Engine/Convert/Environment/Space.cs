@@ -77,6 +77,12 @@ namespace BH.Engine.Adapters.DIALux
 
             Polyline polyline = new Polyline() { ControlPoints = points };
 
+            if(!polyline.IsClosed())
+            {
+                points.Add(points.First());
+                polyline = new Polyline() { ControlPoints = points };
+            }
+
             double height = System.Convert.ToDouble(dialUXRoom[2].Split('=')[1]);
             p = polyline.ExtrudeToVolume(dialUXRoom[0], height);
 
@@ -88,7 +94,7 @@ namespace BH.Engine.Adapters.DIALux
                 for (int x = openingIndex; x < openingIndex + 5; x++)
                     opening.Add(dialUXRoom[x]);
 
-                openings.Add(opening.FromDialUXOpening(p.Where(x => x.IsContaining(opening[3].FromDialUXPoint())).FirstOrDefault()));
+                openings.Add(opening.FromDialUXOpening(p.Where(x => x.IsContaining(opening[3].FromDialUXPoint())).FirstOrDefault(), p));
 
                 openingIndex += 5;
             }
