@@ -52,8 +52,6 @@ namespace BH.Adapter.DIALux
                 return;
             }
 
-            AdapterIdName = "DIALux_Adapter";
-
             // This asks the base Push to only Create the objects.
             m_AdapterSettings.DefaultPushType = oM.Adapter.PushType.CreateOnly;
         }
