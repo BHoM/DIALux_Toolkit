@@ -38,7 +38,6 @@ namespace BH.Engine.Adapters.DIALux
         [Description("Converts a BHoM Geometry Point to a DialUX point string, rounded to the specified number of decimal places")]
         [Input("point", "The BHoM Geometry Point to convert")]
         [Input("decimalPlaces", "Define how many decimal places you want the coordinate to contain. Default 3")]
-        [Input("fullPoint", "Decide whether to export XYZ coordinates or just XY coordinates. Default false - default to export XY coordinates only")]
         [Output("dialUXPoint", "String representing a DialUX point")]
         [PreviousVersion("4.0", "BH.Engine.Adapters.DIALux.Convert.ToDialUX(BH.oM.Geometry.Point, System.Int32, System.Boolean)")]
         public static string ToDIALux(this Point point, int decimalPlaces = 3)
