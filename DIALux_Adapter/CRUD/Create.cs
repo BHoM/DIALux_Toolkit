@@ -53,7 +53,7 @@ namespace BH.Adapter.DIALux
             List<List<Panel>> panelsAsSpaces = panels.ToSpaces();
 
             foreach(List<Panel> space in panelsAsSpaces)
-                file.Project.Rooms.Add(space.ToDialUX());
+                file.Project.Rooms.Add(space.ToDIALux());
 
             StreamWriter sw = new StreamWriter(FileSettings.GetFullFileName());
 
@@ -96,7 +96,7 @@ namespace BH.Adapter.DIALux
             sw.WriteLine("Height=" + room.Height);
             sw.WriteLine("NrPoints=" + room.Points.Count.ToString());
             for (int x = 1; x <= room.Points.Count; x++)
-                sw.WriteLine("Point" + x.ToString() + "=" + room.Points[x-1].ToDialUX());
+                sw.WriteLine("Point" + x.ToString() + "=" + room.Points[x-1].ToDIALux());
 
             sw.WriteLine("NrStruct=" + room.Structures.Count.ToString());
             //Add structure output here...
@@ -116,7 +116,7 @@ namespace BH.Adapter.DIALux
             sw.WriteLine(furnIndex + "=" + furnishing.Type);
             sw.WriteLine(furnIndex + ".Ref=" + furnishing.Reference);
             sw.WriteLine(furnIndex + ".Rot=" + furnishing.RotationX.ToString() + " " + furnishing.RotationY.ToString() + " " + furnishing.RotationZ.ToString());
-            sw.WriteLine(furnIndex + ".Pos=" + furnishing.Position.ToDialUX(fullPoint: true));
+            sw.WriteLine(furnIndex + ".Pos=" + furnishing.Position.ToDIALux());
             sw.WriteLine(furnIndex + ".Size=" + furnishing.Width.ToString() + " " + furnishing.Height.ToString() + " " + furnishing.Depth.ToString());
         }
     }

@@ -43,7 +43,8 @@ namespace BH.Engine.Adapters.DIALux
         [Description("Convert a BHoM Environment Opening Type into a DialUX Furnishing Type")]
         [Input("openingType", "A BHoM Environment Opening Type to convert")]
         [Output("furnishingType", "A DialUX furnishing type")]
-        public static string ToDialUX(this OpeningType openingType)
+        [PreviousVersion("4.0", "BH.Engine.Adapters.DIALux.Convert.ToDialUX(BH.oM.Environment.Elements.OpeningType)")]
+        public static string ToDIALux(this OpeningType openingType)
         {
             switch(openingType)
             {
