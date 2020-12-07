@@ -50,7 +50,7 @@ namespace BH.Engine.Adapters.DIALux
         public static Furnishing ToDIALux(this Opening opening, Panel hostPanel)
         {
             Furnishing furnishing = new Furnishing();
-            furnishing.Type = opening.Type.ToDialUX();
+            furnishing.Type = opening.Type.ToDIALux();
             furnishing.Reference = "";
             furnishing.RotationX = 0;
             furnishing.RotationY = 0;
@@ -81,6 +81,8 @@ namespace BH.Engine.Adapters.DIALux
             double height = System.Convert.ToDouble(size[1]);
 
             centre.Z += (height / 2);
+            double bottomHost = host.Polyline().ControlPoints.Select(x => x.Z).Min();
+            centre.Z += bottomHost;
 
             Point panelBottomRightReference = host.BottomRight(panelsAsSpace);
             Point panelBottomLeftReference = host.BottomLeft(panelsAsSpace);

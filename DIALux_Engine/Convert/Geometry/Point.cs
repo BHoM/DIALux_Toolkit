@@ -40,16 +40,14 @@ namespace BH.Engine.Adapters.DIALux
         [Input("decimalPlaces", "Define how many decimal places you want the coordinate to contain. Default 3")]
         [Input("fullPoint", "Decide whether to export XYZ coordinates or just XY coordinates. Default false - default to export XY coordinates only")]
         [Output("dialUXPoint", "String representing a DialUX point")]
-        public static string ToDialUX(this Point point, int decimalPlaces = 3, bool fullPoint = false)
+        [PreviousVersion("4.0", "BH.Engine.Adapters.DIALux.Convert.ToDialUX(BH.oM.Geometry.Point, System.Int32, System.Boolean)")]
+        public static string ToDIALux(this Point point, int decimalPlaces = 3)
         {
             double x = Math.Round(point.X, decimalPlaces);
             double y = Math.Round(point.Y, decimalPlaces);
-            double z = (fullPoint ? Math.Round(point.Z, decimalPlaces) : 0.0);
+            double z = Math.Round(point.Z, decimalPlaces);
 
-            string dialUX = x.ToString() + " " + y.ToString();
-            if (fullPoint)
-                dialUX += " " + z.ToString();
-
+            string dialUX = x.ToString() + " " + y.ToString() + " " + z.ToString();
             return dialUX;
         }
 
