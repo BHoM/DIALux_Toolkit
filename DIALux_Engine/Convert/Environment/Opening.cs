@@ -45,7 +45,8 @@ namespace BH.Engine.Adapters.DIALux
         [Description("Convert a BHoM Environment Opening into a DialUX Furnishing")]
         [Input("opening", "A BHoM Environment Opening to convert")]
         [Output("furnishing", "A DialUX opening represented as a 'furnishing'")]
-        public static Furnishing ToDIALux(this Opening opening)
+        [PreviousVersion("4.0", "BH.Engine.Adapters.DIALux.Convert.ToDIALux(BH.oM.Environment.Elements.Opening)")]
+        public static Furnishing ToDIALux(this Opening opening, Panel hostPanel)
         {
             Furnishing furnishing = new Furnishing();
             furnishing.Type = opening.Type.ToDialUX();
@@ -56,6 +57,9 @@ namespace BH.Engine.Adapters.DIALux
 
             Point centre = opening.Polyline().Centroid();
             centre.Z -= (opening.Polyline().Height() / 2);
+
+            double bottomHost = hostPanel.Polyline().ControlPoints.Select(x => x.Z).Min();
+            centre.Z -= bottomHost;
 
             furnishing.Position = centre;
             furnishing.Height = Math.Round(opening.Polyline().Height(), 3);

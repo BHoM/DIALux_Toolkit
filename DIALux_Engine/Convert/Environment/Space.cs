@@ -57,7 +57,7 @@ namespace BH.Engine.Adapters.DIALux
             foreach(Panel p in panelsAsSpace)
             {
                 foreach (Opening o in p.Openings)
-                    room.Furnishings.Add(o.ToDIALux());
+                    room.Furnishings.Add(o.ToDIALux(p));
             }
 
             return room;
