@@ -44,6 +44,7 @@ namespace BH.Engine.Adapters.DIALux
     {
         [Description("Convert a BHoM Environment Opening into a DialUX Furnishing")]
         [Input("opening", "A BHoM Environment Opening to convert")]
+        [Input("hostPanel", "The BHoM Environment Panel which hosts this Opening to convert to a DIALux furnishing")]
         [Output("furnishing", "A DialUX opening represented as a 'furnishing'")]
         [PreviousVersion("4.0", "BH.Engine.Adapters.DIALux.Convert.ToDIALux(BH.oM.Environment.Elements.Opening)")]
         public static Furnishing ToDIALux(this Opening opening, Panel hostPanel)
