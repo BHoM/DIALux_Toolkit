@@ -31,7 +31,7 @@ using BH.oM.Reflection.Attributes;
 using System.ComponentModel;
 using BH.Engine.Reflection;
 
-namespace BH.Engine.Adapters.DIALux
+namespace BH.Adapter.DIALux
 {
     public static partial class Convert
     {
@@ -39,7 +39,6 @@ namespace BH.Engine.Adapters.DIALux
         [Input("point", "The BHoM Geometry Point to convert")]
         [Input("decimalPlaces", "Define how many decimal places you want the coordinate to contain. Default 3")]
         [Output("dialUXPoint", "String representing a DialUX point")]
-        [PreviousVersion("4.0", "BH.Engine.Adapters.DIALux.Convert.ToDialUX(BH.oM.Geometry.Point, System.Int32, System.Boolean)")]
         public static string ToDIALux(this Point point, int decimalPlaces = 3)
         {
             double x = Math.Round(point.X, decimalPlaces);

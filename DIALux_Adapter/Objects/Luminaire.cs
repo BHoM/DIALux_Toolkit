@@ -29,22 +29,16 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Geometry;
 
-namespace BH.oM.Adapters.DIALux
+namespace BH.Adapter.DIALux
 {
-    public class LuminaireType : BHoMObject
+    public class Luminaire : BHoMObject
     {
-        public virtual string Manufacturer { get; set; } = "";
-        public virtual string OrderNumber { get; set; } = "";
-        public virtual double BoxHeight { get; set; } = 0.0;
-        public virtual double BoxWidth { get; set; } = 0.0;
-        public virtual double BoxDepth { get; set; } = 0.0;
-        public virtual int Shape { get; set; } = 1;
-        public virtual double Load { get; set; } = 0.0;
-        public virtual double Flux { get; set; } = 0.0;
-        public virtual int NumberLamps { get; set; } = 0;
-        public virtual int MountingType { get; set; } = 1;
-        public virtual string Description { get; set; } = "";
-        public virtual string Picture { get; set; } = "";
-        public virtual string Model { get; set; } = "";
+        public virtual string Type { get; set; } = "";
+        public virtual double RotationX { get; set; } = 0.0;
+        public virtual double RotationY { get; set; } = 0.0;
+        public virtual double RotationZ { get; set; } = 0.0;
+        public virtual Vector Extends { get; set; } = new Vector();
+
+        public virtual LuminaireType LuminaireType { get; set; } = new LuminaireType();
     }
 }

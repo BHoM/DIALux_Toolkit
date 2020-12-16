@@ -34,11 +34,10 @@ using BH.oM.Environment.Elements;
 using BH.Engine.Environment;
 using BH.Engine.Geometry;
 
-using BH.oM.Adapters.DIALux;
 using BH.oM.Geometry.CoordinateSystem;
 using System.Diagnostics;
 
-namespace BH.Engine.Adapters.DIALux
+namespace BH.Adapter.DIALux
 {
     public static partial class Convert
     {
@@ -46,7 +45,6 @@ namespace BH.Engine.Adapters.DIALux
         [Input("opening", "A BHoM Environment Opening to convert")]
         [Input("hostPanel", "The BHoM Environment Panel which hosts this Opening to convert to a DIALux furnishing")]
         [Output("furnishing", "A DialUX opening represented as a 'furnishing'")]
-        [PreviousVersion("4.0", "BH.Engine.Adapters.DIALux.Convert.ToDIALux(BH.oM.Environment.Elements.Opening)")]
         public static Furnishing ToDIALux(this Opening opening, Panel hostPanel)
         {
             Furnishing furnishing = new Furnishing();
@@ -70,7 +68,7 @@ namespace BH.Engine.Adapters.DIALux
             return furnishing;
         }
 
-        public static Opening FromDialUXOpening(this List<string> furnishing, Panel host, List<Panel> panelsAsSpace)
+        public static Opening FromDialUXOpening(this List<string> furnishing, List<Panel> panelsAsSpace)
         {
             Opening opening = new Opening();
 
@@ -81,8 +79,20 @@ namespace BH.Engine.Adapters.DIALux
             double height = System.Convert.ToDouble(size[1]);
 
             centre.Z += (height / 2);
+
+            double minZ = panelsAsSpace.Select(x => x.Polyline().ControlPoints.Select(y => y.Z).Min()).Min();
+            centre.Z += minZ;
+
+            Panel host = panelsAsSpace.Where(x => x.IsContaining(centre)).FirstOrDefault();
+            if (host == null)
+            {
+                BH.Engine.Reflection.Compute.RecordError("A suitable host panel for opening reference " + furnishing[1] + " - opening may not have been correctly pulled.");
+                return opening;
+            }
+
             double bottomHost = host.Polyline().ControlPoints.Select(x => x.Z).Min();
-            centre.Z += bottomHost;
+            if(bottomHost != minZ)
+                centre.Z += bottomHost;
 
             Point panelBottomRightReference = host.BottomRight(panelsAsSpace);
             Point panelBottomLeftReference = host.BottomLeft(panelsAsSpace);
@@ -94,7 +104,7 @@ namespace BH.Engine.Adapters.DIALux
 
             Point worldOrigin = new Point { X = 0, Y = 0, Z = 0 };
             Cartesian worldCartesian = BH.Engine.Geometry.Create.CartesianCoordinateSystem(worldOrigin, Vector.XAxis, Vector.YAxis);
-            Cartesian localCartesian = BH.Engine.Geometry.Create.CartesianCoordinateSystem(host.Bounds().Min, xVector, yVector);
+            Cartesian localCartesian = BH.Engine.Geometry.Create.CartesianCoordinateSystem(panelBottomRightReference, xVector, yVector);
 
             Point centreTransformed = centre.Orient(localCartesian, worldCartesian);
 
@@ -112,6 +122,7 @@ namespace BH.Engine.Adapters.DIALux
             opening.Edges = openingCurve.ToEdges();
             opening.Type = furnishing[0].Split('=')[1].FromDialUXOpeningType();
 
+            host.Openings.Add(opening);
             return opening;
         }
     }

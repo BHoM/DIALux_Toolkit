@@ -34,16 +34,13 @@ using BH.oM.Environment.Elements;
 using BH.Engine.Environment;
 using BH.Engine.Geometry;
 
-using BH.oM.Adapters.DIALux;
-
-namespace BH.Engine.Adapters.DIALux
+namespace BH.Adapter.DIALux
 {
     public static partial class Convert
     {
         [Description("Convert a collection of BHoM Environment Panels that represent a space into a DialUX room")]
         [Input("panelsAsSpace", "A collection of Environment Panels which represent a single space and provide a watertight geometric floorplate")]
         [Output("room", "A DialUX room")]
-        [PreviousVersion("4.0", "BH.Engine.Adapters.DIALux.Convert.ToDialUX(System.Collections.Generic.List<BH.oM.Environment.Elements.Panel>)")]
         public static Room ToDIALux(this List<Panel> panelsAsSpace)
         {
             Room room = new Room();
@@ -89,24 +86,18 @@ namespace BH.Engine.Adapters.DIALux
 
             int openingIndex = endPointIndex + 3;
             List<Opening> openings = new List<Opening>();
+            List<Panel> paneledOpenings = new List<Panel>();
             while(openingIndex < dialUXRoom.Count)
             {
                 List<string> opening = new List<string>();
                 for (int x = openingIndex; x < openingIndex + 5; x++)
                     opening.Add(dialUXRoom[x]);
 
-                Point openingPoint = opening[3].FromDialUXPoint();
-                //Need to reset the Z level
-                double minZ = p.Select(x => x.Polyline().ControlPoints.Select(y => y.Z).Min()).Min();
-                openingPoint.Z += minZ;
-
-                openings.Add(opening.FromDialUXOpening(p.Where(x => x.IsContaining(openingPoint)).FirstOrDefault(), p));
+                openings.Add(opening.FromDialUXOpening(p));
 
                 openingIndex += 5;
             }
-
-            p = p.AddOpenings(openings);
-
+            
             return p;
         }
     }

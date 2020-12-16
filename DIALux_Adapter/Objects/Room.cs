@@ -27,13 +27,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Geometry;
 
-namespace BH.oM.Adapters.DIALux
+namespace BH.Adapter.DIALux
 {
-    public class StfFile : BHoMObject
+    public class Room : BHoMObject
     {
-        public virtual Version Version { get; set; } = new Version();
-        public virtual Project Project { get; set; } = new Project();
-        public virtual List<LuminaireType> LuminaireTypes { get; set; } = new List<LuminaireType>();
+        public virtual double Height { get; set; } = 0.0;
+        public virtual string Description { get; set; } = "BHoM Created Room";
+        public virtual List<Point> Points { get; set; } = new List<Point>();
+        public virtual List<Structure> Structures { get; set; } = new List<Structure>();
+        public virtual List<Luminaire> Luminaires { get; set; } = new List<Luminaire>();
+        public virtual List<Furnishing> Furnishings { get; set; } = new List<Furnishing>();
+        public virtual string SpecificConnectedLoad { get; set; } = "";
+        public virtual string MeanLuxWorkingPlane { get; set; } = "";
     }
 }
