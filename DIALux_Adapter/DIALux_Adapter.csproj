@@ -77,6 +77,10 @@
       <HintPath>C:\ProgramData\BHoM\Assemblies\Environment_oM.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Geometry_Engine">
+      <HintPath>..\..\..\..\..\..\..\ProgramData\BHoM\Assemblies\Geometry_Engine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Geometry_oM">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\ProgramData\BHoM\Assemblies\Geometry_oM.dll</HintPath>
@@ -100,9 +104,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Convert\Environment\Opening.cs" />
+    <Compile Include="Convert\Environment\OpeningType.cs" />
+    <Compile Include="Convert\Environment\Space.cs" />
+    <Compile Include="Convert\Geometry\Point.cs" />
     <Compile Include="CRUD\Create.cs" />
     <Compile Include="CRUD\Read.cs" />
     <Compile Include="DIALuxAdapter.cs" />
+    <Compile Include="Objects\Furnishing.cs" />
+    <Compile Include="Objects\Luminaire.cs" />
+    <Compile Include="Objects\LuminaireType.cs" />
+    <Compile Include="Objects\Project.cs" />
+    <Compile Include="Objects\Room.cs" />
+    <Compile Include="Objects\StfFile.cs" />
+    <Compile Include="Objects\Structure.cs" />
+    <Compile Include="Objects\Version.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

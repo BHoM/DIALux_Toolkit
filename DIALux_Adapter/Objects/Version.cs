@@ -27,17 +27,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
-using BH.oM.Geometry;
 
-namespace BH.oM.Adapters.DIALux
+namespace BH.Adapter.DIALux
 {
-    public class Structure : BHoMObject
+    public class Version : BHoMObject
     {
-        public virtual string Type { get; set; } = "";
-        public virtual Point Position { get; set; } = new Point();
-        public virtual double RotationX { get; set; } = 0.0;
-        public virtual double RotationY { get; set; } = 0.0;
-        public virtual double RotationZ { get; set; } = 0.0;
-        public virtual Luminaire LuminaireStructure { get; set; } = new Luminaire();
+        public virtual string VersionNo { get; set; } = "1.0.5";
+        public virtual string ProgramName { get; set; } = "BHoM";
+        public virtual string ProgramVersion { get; set; } = "2.3.0";
     }
 }

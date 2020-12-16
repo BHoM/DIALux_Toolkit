@@ -28,7 +28,7 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-namespace BH.oM.Adapters.DIALux
+namespace BH.Adapter.DIALux
 {
     public class Project : BHoMObject
     {

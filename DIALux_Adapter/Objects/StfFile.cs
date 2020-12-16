@@ -28,12 +28,12 @@ using System.Threading.Tasks;
 
 using BH.oM.Base;
 
-namespace BH.oM.Adapters.DIALux
+namespace BH.Adapter.DIALux
 {
-    public class Version : BHoMObject
+    public class StfFile : BHoMObject
     {
-        public virtual string VersionNo { get; set; } = "1.0.5";
-        public virtual string ProgramName { get; set; } = "BHoM";
-        public virtual string ProgramVersion { get; set; } = "2.3.0";
+        public virtual Version Version { get; set; } = new Version();
+        public virtual Project Project { get; set; } = new Project();
+        public virtual List<LuminaireType> LuminaireTypes { get; set; } = new List<LuminaireType>();
     }
 }
