@@ -27,7 +27,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Geometry;
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 using System.ComponentModel;
 using BH.Engine.Reflection;
 
@@ -57,12 +57,12 @@ namespace BH.Adapter.DIALux
             string[] pointParts = dialUXPoint.Split('=')[1].Split(' ');
             if(pointParts.Length < 2)
             {
-                BH.Engine.Reflection.Compute.RecordError("That string does not contain enough parts to convert to a BHoM point");
+                BH.Engine.Base.Compute.RecordError("That string does not contain enough parts to convert to a BHoM point");
                 return null;
             }
             if(pointParts.Length > 3)
             {
-                BH.Engine.Reflection.Compute.RecordError("That string contains too many parts to convert to a BHoM point. It should contain 3 numbers separated by spaces and nothing more.");
+                BH.Engine.Base.Compute.RecordError("That string contains too many parts to convert to a BHoM point. It should contain 3 numbers separated by spaces and nothing more.");
                 return null;
             }
 
@@ -74,7 +74,7 @@ namespace BH.Adapter.DIALux
                     p.X = System.Convert.ToDouble(pointParts[0]);
                 }
                 catch {
-                    BH.Engine.Reflection.Compute.RecordError("Attempting to convert to the X coordinate failed. An error occurred in converting the string part to a double for a BHoM Point. The string part was: " + pointParts[0] + " - please ensure it does not contain any invalid characters");
+                    BH.Engine.Base.Compute.RecordError("Attempting to convert to the X coordinate failed. An error occurred in converting the string part to a double for a BHoM Point. The string part was: " + pointParts[0] + " - please ensure it does not contain any invalid characters");
                     return null;
                 }
             }
@@ -86,7 +86,7 @@ namespace BH.Adapter.DIALux
                 }
                 catch
                 {
-                    BH.Engine.Reflection.Compute.RecordError("Attempting to convert to the Y coordinate failed. An error occurred in converting the string part to a double for a BHoM Point. The string part was: " + pointParts[1] + " - please ensure it does not contain any invalid characters");
+                    BH.Engine.Base.Compute.RecordError("Attempting to convert to the Y coordinate failed. An error occurred in converting the string part to a double for a BHoM Point. The string part was: " + pointParts[1] + " - please ensure it does not contain any invalid characters");
                     return null;
                 }
             }
@@ -98,7 +98,7 @@ namespace BH.Adapter.DIALux
                 }
                 catch
                 {
-                    BH.Engine.Reflection.Compute.RecordError("Attempting to convert to the Z coordinate failed. An error occurred in converting the string part to a double for a BHoM Point. The string part was: " + pointParts[2] + " - please ensure it does not contain any invalid characters");
+                    BH.Engine.Base.Compute.RecordError("Attempting to convert to the Z coordinate failed. An error occurred in converting the string part to a double for a BHoM Point. The string part was: " + pointParts[2] + " - please ensure it does not contain any invalid characters");
                     return null;
                 }
             }

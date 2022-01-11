@@ -27,7 +27,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Geometry;
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 using System.ComponentModel;
 using BH.Engine.Reflection;
 using BH.oM.Environment.Elements;
@@ -86,7 +86,7 @@ namespace BH.Adapter.DIALux
             Panel host = panelsAsSpace.Where(x => x.IsContaining(centre)).FirstOrDefault();
             if (host == null)
             {
-                BH.Engine.Reflection.Compute.RecordError("A suitable host panel for opening reference " + furnishing[1] + " - opening may not have been correctly pulled.");
+                BH.Engine.Base.Compute.RecordError("A suitable host panel for opening reference " + furnishing[1] + " - opening may not have been correctly pulled.");
                 return opening;
             }
 

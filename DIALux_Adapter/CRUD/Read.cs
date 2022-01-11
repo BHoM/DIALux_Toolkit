@@ -47,7 +47,7 @@ namespace BH.Adapter.DIALux
 
             if(!System.IO.File.Exists(FileSettings.GetFullFileName()))
             {
-                BH.Engine.Reflection.Compute.RecordError("File does not exist to pull from");
+                BH.Engine.Base.Compute.RecordError("File does not exist to pull from");
                 return objects;
             }
 
