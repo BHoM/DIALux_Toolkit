@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 using BH.Engine;
 using BH.oM.Base;
 
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 using System.ComponentModel;
 using BH.oM.Data.Requests;
 using BH.oM.Adapter;
@@ -48,7 +48,7 @@ namespace BH.Adapter.DIALux
 
             if (!System.IO.Path.HasExtension(fileSettings.FileName) || System.IO.Path.GetExtension(fileSettings.FileName) != ".stf")
             {
-                BH.Engine.Reflection.Compute.RecordError("File Name must contain a file extension");
+                BH.Engine.Base.Compute.RecordError("File Name must contain a file extension");
                 return;
             }
 
